@@ -32,7 +32,6 @@ export const loadPhotos = () => {
     }
 }
 
-
 export const selectId = (albumId) => {
   return  {
     type: 'select/albumId',
@@ -46,3 +45,4 @@ export const setChangedFilterText = (text) => {
         payload: text
     }
 }
+

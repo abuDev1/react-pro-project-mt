@@ -11,8 +11,8 @@ function App() {
     dispatch(loadPhotos())
   }, [])
   
-  const loadingAlbums = useSelector ((state) => state.loadingAlbums)
-  const loadingPhotos = useSelector ((state) => state.loadingPhotos)
+  const loadingAlbums = useSelector ((state) => state.albums.loadingAlbums)
+  const loadingPhotos = useSelector ((state) => state.photos.loadingPhotos)
 
   if (loadingAlbums || loadingPhotos) {
     return (

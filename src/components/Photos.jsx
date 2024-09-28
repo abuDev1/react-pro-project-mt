@@ -6,9 +6,9 @@ import { setChangedFilterText } from "../redux/actions";
 export const Photos = () => {
   const dispatch = useDispatch();
 
-  const photos = useSelector((state) => state.photos);
-  const selectedAlbumId = useSelector((state) => state.selectedAlbumId);
-    const filter = useSelector((state) => state.filter)
+  const photos = useSelector((state) => state.photos.photos);
+  const selectedAlbumId = useSelector((state) => state.albums.selectedAlbumId);
+  const filter = useSelector((state) => state.photos.filter)
 
   const filteredPhotos = photos
   .filter((photo) => photo.albumId === selectedAlbumId)
