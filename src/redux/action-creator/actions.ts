@@ -1,14 +1,17 @@
+import { Dispatch } from "redux"
+import { AllActions, TodoActionTypes } from "../../types/types"
+
 export const loadAlbums = () => {
-    return (dispatch) => {
+    return (dispatch: Dispatch<AllActions>) => {
         dispatch({
-            type: 'load/albums/start'
+            type: TodoActionTypes.FETCH_ALBUMS
         })
 
         fetch ('https://jsonplaceholder.typicode.com/albums')
         .then ((response) => response.json())
         .then ((data) => {
             dispatch ({
-                type: 'load/albums/success',
+                type: TodoActionTypes.FETCH_ALBUMS_SUCCES,
                 payload: data
             })
         })
@@ -16,32 +19,32 @@ export const loadAlbums = () => {
 }
 
 export const loadPhotos = () => {
-    return (dispatch) => {
+    return (dispatch: Dispatch<AllActions>) => {
         dispatch({
-            type: 'load/photos/start'
+            type: TodoActionTypes.FETCH_PHOTOS
         })
 
         fetch ('https://jsonplaceholder.typicode.com/photos')
         .then ((response) => response.json())
         .then ((data) => {
             dispatch ({
-                type: 'load/photos/succes',
+                type: TodoActionTypes.FETCH_PHOTOS_SUCCESS,
                 payload: data
             })
         })
     }
 }
 
-export const selectId = (albumId) => {
+export const selectId = (albumId: number) => {
   return  {
-    type: 'select/albumId',
+    type: TodoActionTypes.SELECT_ID,
     payload: albumId
   }
 }
 
-export const setChangedFilterText = (text) => {
+export const setChangedFilterText = (text: string) => {
     return {
-        type: 'filter/text',
+        type: TodoActionTypes.FILTER_TEXT,
         payload: text
     }
 }

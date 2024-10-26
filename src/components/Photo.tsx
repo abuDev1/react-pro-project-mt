@@ -1,6 +1,12 @@
 import React from 'react'
 
-export const Photo = ({photo}) => {
+type PhotoProps = {
+  photo: {
+    title: string
+  }
+}
+
+export const Photo = ({photo}: PhotoProps) => {
   return (
     <>
         <li>

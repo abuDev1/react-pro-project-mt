@@ -1,24 +1,25 @@
+import { AllActions, TodoActionTypes, initialStateAlbums } from "../../types/types";
 
-const initialState = {
+const initialState: initialStateAlbums = {
   albums: [],
   selectedAlbumId: null,
   loadingAlbums: false,
 };
 
-export const albums = (state = initialState, action) => {
+export const albums = (state = initialState, action: AllActions) => {
   switch (action.type) {
-    case "load/albums/start":
+    case TodoActionTypes.FETCH_ALBUMS:
       return {
         ...state,
         loadingAlbums: true,
       };
-    case "load/albums/success":
+    case TodoActionTypes.FETCH_ALBUMS_SUCCES:
       return {
         ...state,
         albums: action.payload,
         loadingAlbums: false,
       };
-    case "select/albumId":
+    case TodoActionTypes.SELECT_ID:
       return {
         ...state,
         selectedAlbumId: action.payload,

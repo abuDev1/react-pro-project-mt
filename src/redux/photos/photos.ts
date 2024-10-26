@@ -1,25 +1,27 @@
-const initialState = {
+import { AllActions, TodoActionTypes, initialStateAlbums, initialStatePhotos } from "../../types/types";
+
+const initialState: initialStatePhotos = {
   photos: [],
   filter: "",
   loadingPhotos: false
 };
 
-export const photos = (state = initialState, action) => {
+export const photos = (state = initialState, action: AllActions) => {
   switch (action.type) {
-    case "load/photos/start":
+    case TodoActionTypes.FETCH_PHOTOS:
       return {
         ...state,
         loadingPhotos: true,
       };
 
-    case "load/photos/succes":
+    case TodoActionTypes.FETCH_PHOTOS_SUCCESS:
       return {
         ...state,
         photos: action.payload,
         loadingPhotos: false,
       };
 
-    case "filter/text":
+    case TodoActionTypes.FILTER_TEXT:
       return {
         ...state,
         filter: action.payload,
